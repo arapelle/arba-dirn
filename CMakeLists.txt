@@ -28,7 +28,7 @@ message(STATUS "PROJECT : ${PROJECT_NAME} ${PROJECT_VERSION}")
 include(CTest)
 
 # Project options
-library_build_options(${PROJECT_NAME} HONLY EXAMPLE TEST)
+library_build_options(${PROJECT_NAME} HEADER_ONLY EXAMPLE TEST)
 
 # Headers:
 set(headers
@@ -44,12 +44,14 @@ add_cpp_honly_library(${PROJECT_NAME}
     CXX_STANDARD 20
     INCLUDE_DIRECTORIES include
     OUTPUT_VERSION_HEADER "version.hpp"
+    NAMESPACE arba::
     )
 
 # Install C++ library
 install_cpp_library_targets(${PROJECT_NAME}
                             TARGETS ${PROJECT_NAME}
                             INCLUDE_DIRECTORIES "include/${PROJECT_NAME}"
+                            NAMESPACE arba::
                             )
 
 # Install package
