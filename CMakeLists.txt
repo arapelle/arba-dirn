@@ -16,8 +16,8 @@ set_build_type_if_undefined()
 
 project(dirn
         VERSION 0.1.0
-#        DESCRIPTION ""
-#        HOMEPAGE_URL ""
+        DESCRIPTION "C++ library for directions (up, left, down right)"
+        HOMEPAGE_URL "https://github.com/arapelle/dirn"
         LANGUAGES CXX)
 
 message(STATUS "BUILD   : ${CMAKE_BUILD_TYPE}")
@@ -28,7 +28,7 @@ message(STATUS "PROJECT : ${PROJECT_NAME} ${PROJECT_VERSION}")
 include(CTest)
 
 # Project options
-library_build_options(${PROJECT_NAME} STATIC SHARED EXAMPLE TEST)
+library_build_options(${PROJECT_NAME} HONLY EXAMPLE TEST)
 
 # Headers:
 set(headers
@@ -39,26 +39,16 @@ include/dirn/directions4.hpp
 include/dirn/cartographic_directions4.hpp
 )
 
-# Sources:
-set(sources
-src/dirn.cpp
-)
-
 # Add C++ library
-add_cpp_library(${PROJECT_NAME} ${PROJECT_NAME}_BUILD_SHARED_LIB ${PROJECT_NAME}_BUILD_STATIC_LIB
-    SHARED ${PROJECT_NAME}
-    STATIC ${PROJECT_NAME}-static
+add_cpp_honly_library(${PROJECT_NAME}
     CXX_STANDARD 20
     INCLUDE_DIRECTORIES include
     OUTPUT_VERSION_HEADER "version.hpp"
-    HEADERS ${headers}
-    SOURCES ${sources}
-    BUILT_TARGETS project_targets
     )
 
 # Install C++ library
 install_cpp_library_targets(${PROJECT_NAME}
-                            TARGETS ${project_targets}
+                            TARGETS ${PROJECT_NAME}
                             INCLUDE_DIRECTORIES "include/${PROJECT_NAME}"
                             )
 
