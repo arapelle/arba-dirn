@@ -14,7 +14,7 @@ TEST(directions4_tests, directions4_base_count)
 
 TEST(directions4_tests, direction4_value)
 {
-    ASSERT_EQ(dirn::directions4::up, 0);
+    ASSERT_EQ(arba::dirn::directions4::up, 0);
     ASSERT_EQ(dirn::directions4::up.index(), 0);
     ASSERT_EQ(dirn::directions4::right, 1);
     ASSERT_EQ(dirn::directions4::right.index(), 1);

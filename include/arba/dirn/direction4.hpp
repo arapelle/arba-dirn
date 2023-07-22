@@ -6,8 +6,11 @@
 #include <cstdint>
 #include <cassert>
 
+inline namespace arba
+{
 namespace dirn
 {
+
 class direction4
 {
 public:
@@ -47,14 +50,16 @@ private:
 
     IT value_;
 };
+
+}
 }
 
 namespace std
 {
 template<>
-struct hash<dirn::direction4>
+struct hash< ::arba::dirn::direction4>
 {
-    inline std::size_t operator()(const dirn::direction4& dir) const noexcept
+    inline std::size_t operator()(const ::arba::dirn::direction4& dir) const noexcept
     {
         return static_cast<std::size_t>(dir.index());
     }
