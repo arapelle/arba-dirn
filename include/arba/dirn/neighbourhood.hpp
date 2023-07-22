@@ -1,6 +1,6 @@
 #pragma once
 
-#include "dirn/directions4.hpp"
+#include "directions4.hpp"
 #include <vector>
 #include <optional>
 

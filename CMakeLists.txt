@@ -34,11 +34,11 @@ generate_version_macro_header(generated_version_header
 
 ## Headers:
 set(headers
-    include/dirn/direction.hpp
-    include/dirn/direction4.hpp
-    include/dirn/directions4_base.hpp
-    include/dirn/directions4.hpp
-    include/dirn/cartographic_directions4.hpp
+    include/arba/dirn/direction.hpp
+    include/arba/dirn/direction4.hpp
+    include/arba/dirn/directions4_base.hpp
+    include/arba/dirn/directions4.hpp
+    include/arba/dirn/cartographic_directions4.hpp
 )
 
 ## Add C++ library
