@@ -21,7 +21,7 @@ public:
     auto operator<=>(const vec2& v) const = default;
 };
 
-TEST(dirn_tests, neighbour)
+TEST(neighbourhood_tests, neighbour)
 {
     vec2 vec(10,0);
     ASSERT_EQ(*dirn::neighbour(vec, dirn::directions4::up), vec2(10,-1));
@@ -33,7 +33,7 @@ TEST(dirn_tests, neighbour)
     ASSERT_FALSE(dirn::neighbour(vec, dirn::directions4::undefined_direction));
 }
 
-TEST(dirn_tests, neighbour_2)
+TEST(neighbourhood_tests, neighbour_2)
 {
     vec2 vec(10,0);
     vec2 bad(0xfa11, 0xfa11);
@@ -46,15 +46,9 @@ TEST(dirn_tests, neighbour_2)
     ASSERT_EQ(dirn::neighbour(vec, dirn::directions4::undefined_direction, bad), bad);
 }
 
-TEST(dirn_tests, neighbours)
+TEST(neighbourhood_tests, neighbours)
 {
     vec2 vec(10,0);
     std::array around{ vec2(10,-1), vec2(11,0), vec2(10,1), vec2(9,0) };
     ASSERT_EQ(dirn::neighbours<dirn::directions4>(vec), around);
-}
-
-int main(int argc, char** argv)
-{
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
