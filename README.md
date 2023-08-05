@@ -7,7 +7,6 @@ The purpose is to provide simple C++ tools to manage directions, like { Up, Righ
 ## Requirements
 
 Binaries:
-
 - A C++20 compiler (ex: g++-13)
 - CMake 3.26 or later
 
@@ -25,7 +24,7 @@ git clone https://github.com/arapelle/arba-dirn --recurse-submodules
 There is a cmake script at the root of the project which builds the library in *Release* mode and install it (default options are used).
 
 ```
-cd /path/to/dirn
+cd /path/to/arba-dirn
 cmake -P cmake/scripts/quick_install.cmake
 ```
 
@@ -99,9 +98,9 @@ int main()
 }
 ```
 
-## Example - Using *dirn* in a CMake project
+## Example - Using *arba-dirn* in a CMake project
 
-See the *basic_cmake_project* example, and more specifically the *CMakeLists.txt* to see how to use *dirn* in your CMake projects.
+See the *basic_cmake_project* example, and more specifically the *CMakeLists.txt* to see how to use *arba-dirn* in your CMake projects.
 
 # License
 

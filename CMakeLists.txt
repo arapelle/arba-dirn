@@ -20,7 +20,7 @@ set(PROJECT_VERSION 0.2.0)
 project(${PROJECT_NAME}
         VERSION ${PROJECT_VERSION}
         DESCRIPTION "C++ library for directions (up, left, down right)"
-        HOMEPAGE_URL "https://github.com/arapelle/dirn"
+        HOMEPAGE_URL "https://github.com/arapelle/arba-dirn"
         LANGUAGES CXX)
 message(STATUS "PROJECT : ${PROJECT_NAME} ${PROJECT_VERSION} ${CMAKE_BUILD_TYPE}")
 include(CTest)
