@@ -2,8 +2,11 @@
 
 #include "direction4.hpp"
 
+inline namespace arba
+{
 namespace dirn
 {
+
 class directions4_base
 {
 public:
@@ -21,4 +24,6 @@ public:
 
     inline static constexpr direction4 nth(std::size_t index) { assert(index < count); return directions[index]; }
 };
+
+}
 }

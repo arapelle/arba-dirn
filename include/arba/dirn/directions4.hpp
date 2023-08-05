@@ -6,8 +6,11 @@
 #include <cstdint>
 #include <cassert>
 
+inline namespace arba
+{
 namespace dirn
 {
+
 class directions4 : public directions4_base
 {
 public:
@@ -28,4 +31,6 @@ public:
         return sv_array.at(dir.index() + 2);
     }
 };
+
+}
 }

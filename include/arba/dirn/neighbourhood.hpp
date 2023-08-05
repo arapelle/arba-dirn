@@ -1,11 +1,14 @@
 #pragma once
 
-#include "dirn/directions4.hpp"
+#include "directions4.hpp"
 #include <vector>
 #include <optional>
 
+inline namespace arba
+{
 namespace dirn
 {
+
 template <typename Vec2>
 std::optional<Vec2> neighbour(const Vec2& vec, direction4 dir)
 {
@@ -36,5 +39,7 @@ std::array<Vec2, dirs::count> neighbours(Vec2 vec)
     for (const auto& dir : dirs::directions)
         neighbours[dir] = *neighbour(vec, dir);
     return neighbours;
+}
+
 }
 }
