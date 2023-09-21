@@ -8,7 +8,7 @@
 
 inline namespace arba
 {
-namespace dirn
+namespace dirn:: inline d2
 {
 
 class cartographic_directions4 : public directions4_base

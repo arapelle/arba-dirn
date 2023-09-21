@@ -14,8 +14,8 @@ TEST(directions4_tests, directions4_base_count)
 
 TEST(directions4_tests, direction4_value)
 {
-    ASSERT_EQ(arba::dirn::directions4::up, 0);
-    ASSERT_EQ(dirn::directions4::up.index(), 0);
+    ASSERT_EQ(arba::dirn::d2::directions4::up, 0);
+    ASSERT_EQ(dirn::d2::directions4::up.index(), 0);
     ASSERT_EQ(dirn::directions4::right, 1);
     ASSERT_EQ(dirn::directions4::right.index(), 1);
     ASSERT_EQ(dirn::directions4::down, 2);
@@ -31,7 +31,7 @@ TEST(directions4_tests, direction4_value)
 
 TEST(directions4_tests, direction4_to_string_view)
 {
-    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::up), "Up");
+    ASSERT_EQ(dirn::d2::directions4::to_string_view(dirn::directions4::up), "Up");
     ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::right), "Right");
     ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::down), "Down");
     ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::left), "Left");
@@ -53,7 +53,7 @@ TEST(directions4_tests, direction4_to_char)
 
 TEST(directions4_tests, cartographic_direction4_value)
 {
-    ASSERT_EQ(dirn::cartographic_directions4::north, 0);
+    ASSERT_EQ(dirn::d2::cartographic_directions4::north, 0);
     ASSERT_EQ(dirn::cartographic_directions4::north.index(), 0);
     ASSERT_EQ(dirn::cartographic_directions4::east, 1);
     ASSERT_EQ(dirn::cartographic_directions4::east.index(), 1);
