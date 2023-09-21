@@ -21,13 +21,13 @@ public:
 
     inline static char to_char(direction4 dir)
     {
-        static std::string_view chars("?%NESW");
+        static constexpr std::string_view chars("?%NESW");
         return chars.at(dir.index() + 2);
     }
 
     inline static std::string_view to_string_view(direction4 dir)
     {
-        static std::array<std::string_view, count + 2> sv_array{ "Undefined", "Bad", "North", "East", "South", "West" };
+        static constexpr std::array<std::string_view, count + 2> sv_array{ "Undefined", "Bad", "North", "East", "South", "West" };
         return sv_array.at(dir.index() + 2);
     }
 };

@@ -1,4 +1,4 @@
-#include <arba/dirn/neighbourhood.hpp>
+#include <arba/dirn/d2/neighbourhood.hpp>
 #include <gtest/gtest.h>
 #include <cstdlib>
 

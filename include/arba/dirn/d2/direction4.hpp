@@ -1,6 +1,6 @@
 #pragma once
 
-#include "direction.hpp"
+#include "../direction.hpp"
 #include <string_view>
 #include <functional>
 #include <cstdint>

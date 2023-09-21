@@ -1,5 +1,5 @@
-#include <arba/dirn/directions4.hpp>
-#include <arba/dirn/cartographic_directions4.hpp>
+#include <arba/dirn/d2/directions4.hpp>
+#include <arba/dirn/d2/cartographic_directions4.hpp>
 #include <gtest/gtest.h>
 #include <cstdlib>
 
