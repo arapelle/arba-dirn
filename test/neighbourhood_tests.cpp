@@ -1,4 +1,4 @@
-#include <arba/dirn/neighbourhood.hpp>
+#include <arba/dirn/d2/neighbourhood.hpp>
 #include <gtest/gtest.h>
 #include <cstdlib>
 
@@ -24,7 +24,7 @@ public:
 TEST(neighbourhood_tests, neighbour)
 {
     vec2 vec(10,0);
-    ASSERT_EQ(*dirn::neighbour(vec, dirn::directions4::up), vec2(10,-1));
+    ASSERT_EQ(*dirn::d2::neighbour(vec, dirn::directions4::up), vec2(10,-1));
     ASSERT_EQ(*dirn::neighbour(vec, dirn::directions4::right), vec2(11,0));
     ASSERT_EQ(*dirn::neighbour(vec, dirn::directions4::down), vec2(10,1));
     ASSERT_EQ(*dirn::neighbour(vec, dirn::directions4::left), vec2(9,0));

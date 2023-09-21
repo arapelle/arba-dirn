@@ -1,6 +1,6 @@
 #pragma once
 
-#include "direction.hpp"
+#include "../direction.hpp"
 #include <string_view>
 #include <functional>
 #include <cstdint>
@@ -8,7 +8,7 @@
 
 inline namespace arba
 {
-namespace dirn
+namespace dirn:: inline d2
 {
 
 class direction4

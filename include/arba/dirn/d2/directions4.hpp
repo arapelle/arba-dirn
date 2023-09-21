@@ -8,7 +8,7 @@
 
 inline namespace arba
 {
-namespace dirn
+namespace dirn:: inline d2
 {
 
 class directions4 : public directions4_base
@@ -21,13 +21,13 @@ public:
 
     inline static char to_char(direction4 dir)
     {
-        static std::string_view chars("?%URDL");
+        static constexpr std::string_view chars("?%URDL");
         return chars.at(dir.index() + 2);
     }
 
     inline static std::string_view to_string_view(direction4 dir)
     {
-        static std::array<std::string_view, count + 2> sv_array{ "Undefined", "Bad", "Up", "Right", "Down", "Left" };
+        static constexpr std::array<std::string_view, count + 2> sv_array{ "Undefined", "Bad", "Up", "Right", "Down", "Left" };
         return sv_array.at(dir.index() + 2);
     }
 };

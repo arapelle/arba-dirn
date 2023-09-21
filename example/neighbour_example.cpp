@@ -1,6 +1,6 @@
 #include <iostream>
-#include <arba/dirn/directions4.hpp>
-#include <arba/dirn/neighbourhood.hpp>
+#include <arba/dirn/d2/directions4.hpp>
+#include <arba/dirn/d2/neighbourhood.hpp>
 
 class vec2
 {

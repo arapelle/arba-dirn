@@ -4,7 +4,7 @@
 
 inline namespace arba
 {
-namespace dirn
+namespace dirn:: inline d2
 {
 
 class directions4_base
