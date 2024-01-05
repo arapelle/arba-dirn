@@ -1,14 +1,15 @@
 #pragma once
 
 #include "directions4_base.hpp"
-#include <string_view>
-#include <functional>
-#include <cstdint>
+
 #include <cassert>
+#include <cstdint>
+#include <functional>
+#include <string_view>
 
 inline namespace arba
 {
-namespace dirn:: inline d2
+namespace dirn::inline d2
 {
 
 class cartographic_directions4 : public directions4_base
@@ -27,7 +28,8 @@ public:
 
     inline static std::string_view to_string_view(direction4 dir)
     {
-        static constexpr std::array<std::string_view, count + 2> sv_array{ "Undefined", "Bad", "North", "East", "South", "West" };
+        static constexpr std::array<std::string_view, count + 2> sv_array{ "Undefined", "Bad",   "North",
+                                                                           "East",      "South", "West" };
         return sv_array.at(dir.index() + 2);
     }
 };

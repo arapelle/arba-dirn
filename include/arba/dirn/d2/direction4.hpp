@@ -1,14 +1,15 @@
 #pragma once
 
 #include "../direction.hpp"
-#include <string_view>
-#include <functional>
-#include <cstdint>
+
 #include <cassert>
+#include <cstdint>
+#include <functional>
+#include <string_view>
 
 inline namespace arba
 {
-namespace dirn:: inline d2
+namespace dirn::inline d2
 {
 
 class direction4
@@ -33,9 +34,21 @@ public:
 
     inline constexpr auto operator<=>(const direction4& rhs) const = default;
 
-    inline constexpr direction4 opposed() const { assert(is_valid()); return direction4((value_ + opposed_offset_) % count_); }
-    inline constexpr direction4 left() const { assert(is_valid()); return direction4((value_ + left_offset_) % count_); }
-    inline constexpr direction4 right() const { assert(is_valid()); return direction4((value_ + right_offset_) % count_); }
+    inline constexpr direction4 opposed() const
+    {
+        assert(is_valid());
+        return direction4((value_ + opposed_offset_) % count_);
+    }
+    inline constexpr direction4 left() const
+    {
+        assert(is_valid());
+        return direction4((value_ + left_offset_) % count_);
+    }
+    inline constexpr direction4 right() const
+    {
+        assert(is_valid());
+        return direction4((value_ + right_offset_) % count_);
+    }
 
     inline constexpr IT index() const { return value_; }
     inline constexpr operator IT() const { return value_; }
@@ -56,8 +69,8 @@ private:
 
 namespace std
 {
-template<>
-struct hash< ::arba::dirn::direction4>
+template <>
+struct hash<::arba::dirn::direction4>
 {
     inline std::size_t operator()(const ::arba::dirn::direction4& dir) const noexcept
     {

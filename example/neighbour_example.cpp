@@ -1,6 +1,6 @@
-#include <iostream>
 #include <arba/dirn/d2/directions4.hpp>
 #include <arba/dirn/d2/neighbourhood.hpp>
+#include <iostream>
 
 class vec2
 {
@@ -8,9 +8,7 @@ class vec2
     int y_;
 
 public:
-    vec2(int x = 0, int y = 0)
-        : x_(x), y_(y)
-    {}
+    vec2(int x = 0, int y = 0) : x_(x), y_(y) {}
 
     const int& x() const { return x_; }
     int& x() { return x_; }
@@ -23,7 +21,7 @@ public:
 
 int main()
 {
-    vec2 position(0,0);
+    vec2 position(0, 0);
     vec2 new_position = *dirn::neighbour(position, dirn::directions4::right);
     std::cout << new_position.x() << " " << new_position.y() << std::endl;
     return EXIT_SUCCESS;

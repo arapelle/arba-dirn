@@ -1,7 +1,7 @@
-#include <arba/dirn/d2/directions4.hpp>
 #include <arba/dirn/d2/cartographic_directions4.hpp>
-#include <gtest/gtest.h>
+#include <arba/dirn/d2/directions4.hpp>
 #include <cstdlib>
+#include <gtest/gtest.h>
 
 // directions4_base
 
@@ -75,7 +75,8 @@ TEST(directions4_tests, cartographic_direction4_to_string_view)
     ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::south), "South");
     ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::west), "West");
     ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::bad_direction), "Bad");
-    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::undefined_direction), "Undefined");
+    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::undefined_direction),
+              "Undefined");
 }
 
 TEST(directions4_tests, cartographic_direction4_to_char)
@@ -146,7 +147,6 @@ TEST(directions4_tests, direction4_is_undefined)
     ASSERT_FALSE(dirn::directions4::bad_direction.is_undefined());
     ASSERT_TRUE(dirn::directions4::undefined_direction.is_undefined());
 }
-
 
 TEST(directions4_tests, direction4_left)
 {

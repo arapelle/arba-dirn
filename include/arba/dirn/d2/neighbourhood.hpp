@@ -1,12 +1,13 @@
 #pragma once
 
 #include "directions4.hpp"
-#include <vector>
+
+#include <array>
 #include <optional>
 
 inline namespace arba
 {
-namespace dirn:: inline d2
+namespace dirn::inline d2
 {
 
 template <typename Vec2>
@@ -14,10 +15,22 @@ std::optional<Vec2> neighbour(const Vec2& vec, direction4 dir)
 {
     switch (dir)
     {
-    case directions4::up:    { return Vec2(vec.x(),     vec.y() - 1); }
-    case directions4::right: { return Vec2(vec.x() + 1, vec.y()); }
-    case directions4::down:  { return Vec2(vec.x(),     vec.y() + 1); }
-    case directions4::left:  { return Vec2(vec.x() - 1, vec.y()); }
+    case directions4::up:
+    {
+        return Vec2(vec.x(), vec.y() - 1);
+    }
+    case directions4::right:
+    {
+        return Vec2(vec.x() + 1, vec.y());
+    }
+    case directions4::down:
+    {
+        return Vec2(vec.x(), vec.y() + 1);
+    }
+    case directions4::left:
+    {
+        return Vec2(vec.x() - 1, vec.y());
+    }
     case directions4::bad_direction:
     case directions4::undefined_direction:
     default:
