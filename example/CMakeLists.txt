@@ -3,4 +3,5 @@ add_cpp_library_basic_examples(
     SOURCES
         directions4_example.cpp
         neighbour_example.cpp
+        basic_cmake_project/basic_cmake_project.cpp
 )
