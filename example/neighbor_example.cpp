@@ -1,5 +1,4 @@
 #include <arba/dirn/d2/directions4.hpp>
-#include <arba/dirn/d2/neighbourhood.hpp>
 #include <iostream>
 
 class vec2
@@ -16,13 +15,15 @@ public:
     const int& y() const { return y_; }
     int& y() { return y_; }
 
+    vec2 operator+(const vec2& rhs) const { return vec2(x_ + rhs.x_, y_ + rhs.y_); }
+
     auto operator<=>(const vec2& v) const = default;
 };
 
 int main()
 {
     vec2 position(0, 0);
-    vec2 new_position = *dirn::neighbour(position, dirn::directions4::right);
+    vec2 new_position = dirn::neighbor(position, dirn::directions4::right);
     std::cout << new_position.x() << " " << new_position.y() << std::endl;
     return EXIT_SUCCESS;
 }

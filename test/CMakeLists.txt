@@ -5,5 +5,5 @@ add_cpp_library_basic_tests(GTest::gtest_main
     SOURCES
         project_version_tests.cpp
         directions4_tests.cpp
-        neighbourhood_tests.cpp
+        neighborhood_tests.cpp
 )

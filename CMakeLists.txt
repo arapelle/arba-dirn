@@ -48,6 +48,7 @@ set(headers
     include/arba/dirn/dual_direction.hpp
     include/arba/dirn/dual_directions.hpp
     include/arba/dirn/dual_directions_decl.hpp
+    include/arba/dirn/neighborhood.hpp
 )
 
 ## Add C++ library

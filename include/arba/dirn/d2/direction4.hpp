@@ -1,80 +1,85 @@
 #pragma once
 
-#include "../direction.hpp"
-
-#include <cassert>
-#include <cstdint>
-#include <functional>
-#include <string_view>
+#include "../directions_decl.hpp"
+#include "../dual_direction.hpp"
+#include "../dual_directions_decl.hpp"
+#include "../neighborhood.hpp"
 
 inline namespace arba
 {
-namespace dirn::inline d2
+namespace dirn
+{
+inline namespace d2
 {
 
-class direction4
+class direction4 : public dual_direction<4, direction4>
+{
+private:
+    using base_ = dual_direction<4, direction4>;
+
+public:
+    using typename base_::int_type;
+
+    inline constexpr direction4() : base_() {}
+
+    inline constexpr auto operator<=>(const direction4& rhs) const { return this->index() <=> rhs.index(); }
+
+protected:
+    inline constexpr explicit direction4(int_type value) : base_(value) {}
+
+private:
+    friend direction<4, direction4>;
+    friend dual_direction<4, direction4>;
+
+    friend class directions<direction4>;
+    friend class dual_directions<direction4>;
+    friend class directions4;
+};
+
+}
+
+template <class Vec2>
+class neighborhood<d2::direction4, Vec2>
 {
 public:
-    using IT = int8_t;
+    using direction = d2::direction4;
+    using vec2 = Vec2;
+    using neighbors_array = std::array<vec2, direction::cardinality>;
 
-private:
-    inline static constexpr std::size_t count_ = 4;
-    inline static constexpr std::size_t opposed_offset_ = count_ / 2;
-    inline static constexpr std::size_t left_offset_ = opposed_offset_ + 1;
-    inline static constexpr std::size_t right_offset_ = opposed_offset_ - 1;
-    inline static constexpr IT first_valid_value_ = 0;
-    inline static constexpr IT bad_value_ = first_valid_value_ - 1;
-    inline static constexpr IT undefined_value_ = bad_value_ - 1;
+    static const neighbors_array offsets;
 
-public:
-    inline constexpr bool is_valid() const { return value_ >= first_valid_value_; }
-    inline constexpr bool is_bad() const { return value_ == bad_value_; }
-    inline constexpr bool is_undefined() const { return value_ == undefined_value_; }
-    inline constexpr bool is_defined() const { return value_ > undefined_value_; }
-
-    inline constexpr auto operator<=>(const direction4& rhs) const = default;
-
-    inline constexpr direction4 opposed() const
+    static vec2 neighbor(const vec2& vec, direction dir)
     {
-        assert(is_valid());
-        return direction4((value_ + opposed_offset_) % count_);
-    }
-    inline constexpr direction4 left() const
-    {
-        assert(is_valid());
-        return direction4((value_ + left_offset_) % count_);
-    }
-    inline constexpr direction4 right() const
-    {
-        assert(is_valid());
-        return direction4((value_ + right_offset_) % count_);
+        assert(dir.is_valid());
+        return vec + offsets[dir];
     }
 
-    inline constexpr IT index() const { return value_; }
-    inline constexpr operator IT() const { return value_; }
+    static auto neighbors(const vec2& vec)
+    {
+        return std::array{ vec + offsets[0], vec + offsets[1], vec + offsets[2], vec + offsets[3] };
+    }
 
-private:
-    inline constexpr explicit direction4(IT value) : value_(value) {}
-    inline constexpr explicit direction4(priv::bad_direction) : value_(bad_value_) {}
-    inline constexpr explicit direction4(priv::undefined_direction) : value_(undefined_value_) {}
+    static void neighbors(const vec2& vec, std::array<vec2, direction::cardinality>& neighbors)
+    {
+        auto iter = offsets.cbegin();
+        for (auto& neighbor : neighbors)
+        {
+            neighbor = vec + (*iter);
+            ++iter;
+        }
+    }
+};
 
-private:
-    friend class directions4_base;
-
-    IT value_;
+template <class Vec2>
+const typename neighborhood<d2::direction4, Vec2>::neighbors_array neighborhood<d2::direction4, Vec2>::offsets = {
+    Vec2(0, -1), Vec2(1, 0), Vec2(0, 1), Vec2(-1, 0)
 };
 
 }
 }
 
-namespace std
-{
 template <>
-struct hash<::arba::dirn::direction4>
+struct std::hash<::arba::dirn::d2::direction4>
+    : public std::hash<::arba::dirn::dual_direction<4, ::arba::dirn::d2::direction4>>
 {
-    inline std::size_t operator()(const ::arba::dirn::direction4& dir) const noexcept
-    {
-        return static_cast<std::size_t>(dir.index());
-    }
 };
-}
