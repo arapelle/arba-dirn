@@ -43,7 +43,7 @@ public:
     inline static std::string_view to_string_view(direction dir)
     {
         static constexpr std::array<std::string_view, base_::cardinality + 2> sv_array{
-            "UNDEFINED", "BAD", "UP", "UP_RIGHT", "DOWN_RIGHT", "DOWN", "DOWN_LEFT", "UP_LEFT"
+            "undefined", "bad", "up", "up_right", "down_right", "down", "down_left", "up_left"
         };
         return sv_array.at(dir.index() + 2);
     }

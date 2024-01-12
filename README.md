@@ -1,6 +1,6 @@
 # Concept
 
-The purpose is to provide simple C++ tools to manage directions, like { Up, Right, Down, Left } or { North, East, South, West }.
+The purpose is to provide simple C++ tools to manage directions, like { up, right, down, left } or { north, east, south, west }.
 
 # Install
 

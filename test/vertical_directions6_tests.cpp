@@ -32,14 +32,14 @@ TEST(vertical_directions6_tests, vertical_direction6_value)
 
 TEST(vertical_directions6_tests, vertical_direction6_to_string_view)
 {
-    ASSERT_EQ(dirn::d2::vertical_directions6::to_string_view(dirn::vertical_directions6::up), "UP");
-    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::up_right), "UP_RIGHT");
-    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::down_right), "DOWN_RIGHT");
-    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::down), "DOWN");
-    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::down_left), "DOWN_LEFT");
-    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::up_left), "UP_LEFT");
-    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::bad_direction), "BAD");
-    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::undefined_direction), "UNDEFINED");
+    ASSERT_EQ(dirn::d2::vertical_directions6::to_string_view(dirn::vertical_directions6::up), "up");
+    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::up_right), "up_right");
+    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::down_right), "down_right");
+    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::down), "down");
+    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::down_left), "down_left");
+    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::up_left), "up_left");
+    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::bad_direction), "bad");
+    ASSERT_EQ(dirn::vertical_directions6::to_string_view(dirn::vertical_directions6::undefined_direction), "undefined");
 }
 
 TEST(vertical_directions6_tests, vertical_direction6_to_char)

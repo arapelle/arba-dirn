@@ -32,14 +32,14 @@ TEST(horizontal_directions6_tests, horizontal_direction6_value)
 
 TEST(horizontal_directions6_tests, horizontal_direction6_to_string_view)
 {
-    ASSERT_EQ(dirn::d2::horizontal_directions6::to_string_view(dirn::horizontal_directions6::left), "LEFT");
-    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::left_up), "LEFT_UP");
-    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::right_up), "RIGHT_UP");
-    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::right), "RIGHT");
-    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::right_down), "RIGHT_DOWN");
-    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::left_down), "LEFT_DOWN");
-    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::bad_direction), "BAD");
-    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::undefined_direction), "UNDEFINED");
+    ASSERT_EQ(dirn::d2::horizontal_directions6::to_string_view(dirn::horizontal_directions6::left), "left");
+    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::left_up), "left_up");
+    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::right_up), "right_up");
+    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::right), "right");
+    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::right_down), "right_down");
+    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::left_down), "left_down");
+    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::bad_direction), "bad");
+    ASSERT_EQ(dirn::horizontal_directions6::to_string_view(dirn::horizontal_directions6::undefined_direction), "undefined");
 }
 
 TEST(horizontal_directions6_tests, horizontal_direction6_to_char)

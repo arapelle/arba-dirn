@@ -29,12 +29,12 @@ TEST(directions4_tests, directions4__dir_value)
 
 TEST(directions4_tests, direction4_to_string_view)
 {
-    ASSERT_EQ(dirn::d2::directions4::to_string_view(dirn::directions4::up), "UP");
-    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::right), "RIGHT");
-    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::down), "DOWN");
-    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::left), "LEFT");
-    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::bad_direction), "BAD");
-    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::undefined_direction), "UNDEFINED");
+    ASSERT_EQ(dirn::d2::directions4::to_string_view(dirn::directions4::up), "up");
+    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::right), "right");
+    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::down), "down");
+    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::left), "left");
+    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::bad_direction), "bad");
+    ASSERT_EQ(dirn::directions4::to_string_view(dirn::directions4::undefined_direction), "undefined");
 }
 
 TEST(directions4_tests, direction4_to_char)
@@ -94,13 +94,13 @@ TEST(directions4_tests, cartographic_direction4_value)
 
 TEST(directions4_tests, cartographic_direction4_to_string_view)
 {
-    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::north), "NORTH");
-    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::east), "EAST");
-    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::south), "SOUTH");
-    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::west), "WEST");
-    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::bad_direction), "BAD");
+    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::north), "north");
+    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::east), "east");
+    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::south), "south");
+    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::west), "west");
+    ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::bad_direction), "bad");
     ASSERT_EQ(dirn::cartographic_directions4::to_string_view(dirn::cartographic_directions4::undefined_direction),
-              "UNDEFINED");
+              "undefined");
 }
 
 TEST(directions4_tests, cartographic_direction4_to_char)
