@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../directions_decl.hpp"
-#include "../dual_direction.hpp"
-#include "../dual_directions_decl.hpp"
-#include "../neighborhood.hpp"
+#include <arba/dirn/directions_decl.hpp>
+#include <arba/dirn/dual_direction.hpp>
+#include <arba/dirn/dual_directions_decl.hpp>
+#include <arba/dirn/neighborhood.hpp>
 
 inline namespace arba
 {

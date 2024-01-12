@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../dual_directions.hpp"
+#include <arba/dirn/dual_directions.hpp>
 #include "direction4.hpp"
 
 #include <string_view>

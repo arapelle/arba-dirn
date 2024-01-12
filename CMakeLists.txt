@@ -37,9 +37,9 @@ configure_headers(configured_headers
 
 ## Headers:
 set(headers
-    include/arba/dirn/d2/cartographic_directions4.hpp
-    include/arba/dirn/d2/direction4.hpp
-    include/arba/dirn/d2/directions4_base.hpp
+    include/arba/dirn/d2/dir4/cartographic_directions4.hpp
+    include/arba/dirn/d2/dir4/direction4.hpp
+    include/arba/dirn/d2/dir4/directions4.hpp
     include/arba/dirn/d2/directions4.hpp
     include/arba/dirn/d2/neighbourhood.hpp
     include/arba/dirn/direction.hpp
