@@ -40,8 +40,8 @@ set(headers
     include/arba/dirn/d2/dir4/cartographic_directions4.hpp
     include/arba/dirn/d2/dir4/direction4.hpp
     include/arba/dirn/d2/dir4/directions4.hpp
-    include/arba/dirn/d2/directions4.hpp
-    include/arba/dirn/d2/neighbourhood.hpp
+    include/arba/dirn/d2/dir6/horizontal_direction6.hpp
+    include/arba/dirn/d2/dir6/horizontal_directions6.hpp
     include/arba/dirn/direction.hpp
     include/arba/dirn/directions.hpp
     include/arba/dirn/directions_decl.hpp
