@@ -7,4 +7,5 @@ add_cpp_library_basic_tests(GTest::gtest_main
         directions4_tests.cpp
         neighborhood_tests.cpp
         horizontal_directions6_tests.cpp
+        vertical_directions6_tests.cpp
 )

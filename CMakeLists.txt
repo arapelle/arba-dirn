@@ -42,6 +42,8 @@ set(headers
     include/arba/dirn/d2/dir4/directions4.hpp
     include/arba/dirn/d2/dir6/horizontal_direction6.hpp
     include/arba/dirn/d2/dir6/horizontal_directions6.hpp
+    include/arba/dirn/d2/dir6/vertical_direction6.hpp
+    include/arba/dirn/d2/dir6/vertical_directions6.hpp
     include/arba/dirn/direction.hpp
     include/arba/dirn/directions.hpp
     include/arba/dirn/directions_decl.hpp
