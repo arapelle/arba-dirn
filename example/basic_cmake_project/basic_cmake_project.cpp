@@ -1,5 +1,5 @@
+#include <arba/dirn/d2/dir4/directions4.hpp>
 #include <arba/dirn/version.hpp>
-#include <arba/dirn/d2/directions4.hpp>
 #include <iostream>
 
 int main()

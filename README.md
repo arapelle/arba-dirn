@@ -1,6 +1,6 @@
 # Concept
 
-The purpose is to provide simple C++ tools to manage directions, like { Up, Right, Down, Left } or { North, East, South, West }.
+The purpose is to provide simple C++ tools to manage directions, like { up, right, down, left } or { north, east, south, west }.
 
 # Install
 
@@ -9,6 +9,9 @@ The purpose is to provide simple C++ tools to manage directions, like { Up, Righ
 Binaries:
 - A C++20 compiler (ex: g++-13)
 - CMake 3.26 or later
+
+Libraries:
+- [arba-vrsn](https://github.com/arapelle/arba-vrsn) 0.1.0
 
 Testing Libraries (optional):
 - [Google Test](https://github.com/google/googletest) 1.13 or later (optional)
@@ -63,12 +66,11 @@ int main()
 }
 ```
 
-## Example - Compute neighbour position
+## Example - Compute neighbor position
 
 ```c++
+#include <arba/dirn/d2/directions4.hpp>
 #include <iostream>
-#include <arba/dirn/directions4.hpp>
-#include <arba/dirn/neighbourhood.hpp>
 
 class vec2
 {
@@ -76,9 +78,7 @@ class vec2
     int y_;
 
 public:
-    vec2(int x = 0, int y = 0)
-        : x_(x), y_(y)
-    {}
+    vec2(int x = 0, int y = 0) : x_(x), y_(y) {}
 
     const int& x() const { return x_; }
     int& x() { return x_; }
@@ -86,13 +86,15 @@ public:
     const int& y() const { return y_; }
     int& y() { return y_; }
 
+    vec2 operator+(const vec2& rhs) const { return vec2(x_ + rhs.x_, y_ + rhs.y_); }
+
     auto operator<=>(const vec2& v) const = default;
 };
 
 int main()
 {
-    vec2 position(0,0);
-    vec2 new_position = *dirn::neighbour(position, dirn::directions4::right);
+    vec2 position(0, 0);
+    vec2 new_position = dirn::neighbor(position, dirn::directions4::right);
     std::cout << new_position.x() << " " << new_position.y() << std::endl;
     return EXIT_SUCCESS;
 }
