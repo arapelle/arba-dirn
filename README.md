@@ -10,6 +10,9 @@ Binaries:
 - A C++20 compiler (ex: g++-13)
 - CMake 3.26 or later
 
+Libraries:
+- [arba-vrsn](https://github.com/arapelle/arba-vrsn) 0.1.0
+
 Testing Libraries (optional):
 - [Google Test](https://github.com/google/googletest) 1.13 or later (optional)
 
