@@ -36,7 +36,7 @@ private:
     friend class horizontal_directions6;
 };
 
-}
+} // namespace d2
 
 template <class Vec2>
 class neighborhood<d2::horizontal_direction6, Vec2>
@@ -88,8 +88,8 @@ const typename neighborhood<d2::horizontal_direction6, Vec2>::neighbors_array
     neighborhood<d2::horizontal_direction6, Vec2>::odd_offsets = { Vec2(-1, 0), Vec2(0, -1), Vec2(1, -1),
                                                                    Vec2(1, 0),  Vec2(1, 1),  Vec2(0, 1) };
 
-}
-}
+} // namespace dirn
+} // namespace arba
 
 template <>
 struct std::hash<::arba::dirn::d2::horizontal_direction6>

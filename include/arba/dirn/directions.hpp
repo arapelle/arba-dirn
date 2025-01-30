@@ -1,7 +1,7 @@
 #pragma once
 
-#include "directions_decl.hpp"
 #include "direction.hpp"
+#include "directions_decl.hpp"
 
 #include <cassert>
 #include <cstdint>
@@ -41,5 +41,5 @@ public:
     }
 };
 
-}
-}
+} // namespace dirn
+} // namespace arba

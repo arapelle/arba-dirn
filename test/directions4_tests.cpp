@@ -1,7 +1,9 @@
 #include <arba/dirn/d2/dir4/cartographic_directions4.hpp>
 #include <arba/dirn/d2/dir4/directions4.hpp>
-#include <cstdlib>
+
 #include <gtest/gtest.h>
+
+#include <cstdlib>
 
 // directions4
 

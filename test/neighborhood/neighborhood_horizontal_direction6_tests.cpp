@@ -1,8 +1,9 @@
 #include "vec2.hpp"
-
 #include <arba/dirn/d2/dir6/horizontal_directions6.hpp>
-#include <cstdlib>
+
 #include <gtest/gtest.h>
+
+#include <cstdlib>
 
 const vec2 odd_pos(2, 1);
 const std::array odd_neighborhood{ vec2(1, 1), vec2(2, 0), vec2(3, 0), vec2(3, 1), vec2(3, 2), vec2(2, 2) };

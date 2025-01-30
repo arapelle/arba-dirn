@@ -28,5 +28,5 @@ void neighbors(const VecType& vec, std::array<VecType, DirectionType::cardinalit
     neighborhood<DirectionType, VecType>::neighbors(vec, neighbors);
 }
 
-}
-}
+} // namespace dirn
+} // namespace arba
