@@ -1,5 +1,6 @@
 #pragma once
 
+#include <bit>
 #include <cassert>
 #include <cstdint>
 #include <functional>
@@ -10,14 +11,6 @@ namespace dirn
 {
 namespace priv
 {
-
-class bad_direction
-{
-};
-
-class undefined_direction
-{
-};
 
 enum invalid_direction_ : int8_t
 {
@@ -52,26 +45,54 @@ public:
     inline constexpr self_type left_direction() const
     {
         assert(this->is_valid());
-        return self_type((this->value_ + left_offset_) % this->cardinality);
+        if constexpr (std::has_single_bit(cardinality))
+        {
+            return self_type((this->value_ + left_offset_) & (this->cardinality - 1));
+        }
+        else
+        {
+            return self_type((this->value_ + left_offset_) % this->cardinality);
+        }
     }
 
     inline constexpr void turn_left()
     {
         assert(this->is_valid());
         this->value_ += left_offset_;
-        this->value_ %= this->cardinality;
+        if constexpr (std::has_single_bit(cardinality))
+        {
+            this->value_ &= (cardinality - 1);
+        }
+        else
+        {
+            this->value_ %= cardinality;
+        }
     }
 
     inline constexpr self_type right_direction() const
     {
         assert(this->is_valid());
-        return self_type((this->value_ + 1) % this->cardinality);
+        if constexpr (std::has_single_bit(cardinality))
+        {
+            return self_type((this->value_ + 1) & (cardinality - 1));
+        }
+        else
+        {
+            return self_type((this->value_ + 1) % cardinality);
+        }
     }
 
     inline constexpr void turn_right()
     {
         assert(this->is_valid());
-        ++this->value_ %= this->cardinality;
+        if constexpr (std::has_single_bit(cardinality))
+        {
+            ++this->value_ &= (cardinality - 1);
+        }
+        else
+        {
+            ++this->value_ %= cardinality;
+        }
     }
 
     inline constexpr std::array<self_type, cardinality - 1> other_directions() const
