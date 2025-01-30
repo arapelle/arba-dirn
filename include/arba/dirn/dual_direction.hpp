@@ -12,7 +12,7 @@ namespace dirn
 {
 
 template <std::size_t DirCount, class SelfType>
-    requires((DirCount & 1) == 0)
+    requires(DirCount > 0 && (DirCount & 1) == 0)
 class dual_direction : public direction<DirCount, SelfType>
 {
 private:
@@ -29,7 +29,14 @@ public:
     inline constexpr self_type opposed_direction() const
     {
         assert(this->is_valid());
-        return self_type((this->value_ + this->opposed_offset_) % this->cardinality);
+        if constexpr (std::has_single_bit(base_::cardinality))
+        {
+            return self_type((this->value_ + this->opposed_offset_) & (this->cardinality - 1));
+        }
+        else
+        {
+            return self_type((this->value_ + this->opposed_offset_) % this->cardinality);
+        }
     }
 
     inline constexpr dual_direction() : base_() {}
@@ -38,8 +45,8 @@ protected:
     inline constexpr explicit dual_direction(int_type value) : base_(value) {}
 };
 
-}
-}
+} // namespace dirn
+} // namespace arba
 
 template <std::size_t DirCount, class SelfType>
 struct std::hash<::arba::dirn::dual_direction<DirCount, SelfType>>

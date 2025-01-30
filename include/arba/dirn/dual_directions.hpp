@@ -30,5 +30,5 @@ public:
     inline static constexpr std::array<direction, base_::cardinality> opposed_directions = opposed_directions_();
 };
 
-}
-}
+} // namespace dirn
+} // namespace arba

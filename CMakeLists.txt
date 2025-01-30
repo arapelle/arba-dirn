@@ -1,8 +1,12 @@
 cmake_minimum_required(VERSION 3.26)
 
+# EXTERNAL DEPENDENCIES
+
+add_subdirectory(external)
+
 # CMAKE INCLUDES
 
-list(PREPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/external/cmake/)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/external/cmake/)
 include(CMakePrintHelpers)
 include(cmtk/CppLibraryProject)
 
@@ -14,17 +18,15 @@ set_build_type_ifndef()
 # C++ PROJECT
 
 set_project_name(NAMESPACE "arba" BASE_NAME "dirn")
-string(TIMESTAMP configure_datetime "%Y%m%d-%H%M%S" UTC)
-set_project_semantic_version("0.4.0"
-    BUILD_METADATA "${configure_datetime}"
-)
+string(TIMESTAMP configure_datetime "%Y%m%d-%H%M%S")
+set_project_semantic_version("0.5.0" BUILD_METADATA "${configure_datetime}")
+
 project(${PROJECT_NAME}
         VERSION ${PROJECT_VERSION}
-        DESCRIPTION "C++ library for directions (up, left, down right)..."
+        DESCRIPTION "A C++ library for directions (ex: { up, left, down right}) in different tiled spaces."
         HOMEPAGE_URL "https://github.com/arapelle/arba-dirn"
         LANGUAGES CXX)
-message(STATUS "PROJECT : ${PROJECT_NAME} ${PROJECT_VERSION} ${CMAKE_BUILD_TYPE}")
-include(CTest)
+message(STATUS "PROJECT : ${PROJECT_NAME} ${PROJECT_SEMANTIC_VERSION} ${CMAKE_BUILD_TYPE}")
 
 # C++ LIBRARY
 
@@ -55,37 +57,33 @@ set(headers
     include/arba/dirn/neighborhood.hpp
 )
 
-## Add C++ library
-add_cpp_library(
-    HEADER_ONLY ${PROJECT_NAME}
-    HEADERS ${headers} ${configured_headers}
-    CXX_STANDARD 20
+## Add C++ library:
+add_cpp_library(${PROJECT_NAME} HEADER_ONLY
+  HEADERS ${headers} ${configured_headers}
+  HEADERS_BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include
+  CXX_STANDARD 20
+  DEFAULT_WARNING_OPTIONS
 )
+add_library("${PROJECT_NAMESPACE}::${PROJECT_BASE_NAME}${LIBRARY_TYPE_POSTFIX}" ALIAS ${PROJECT_NAME})
 
 ## Link C++ targets:
-if(NOT TARGET arba-vrsn)
-    find_package(arba-vrsn 0.1.0 REQUIRED CONFIG)
-endif()
-target_link_libraries(${PROJECT_NAME} INTERFACE arba-vrsn)
-
-## Install C++ library
-install_cpp_library(
-    HEADER_ONLY ${PROJECT_NAME}
-    EXPORT ${PROJECT_NAME}-targets
+find_package(arba-cppx 0.1.0 REQUIRED CONFIG)
+target_link_libraries(${PROJECT_NAME}
+    INTERFACE
+        arba::cppx
 )
 
-## Install package
-install_library_package(${PROJECT_NAME} INPUT_PACKAGE_CONFIG_FILE cmake/config/package-config.cmake.in)
-install_uninstall_script(${PROJECT_NAME} FILENAME uninstall.cmake)
+## Add tests:
+add_test_subdirectory_if_build(test)
 
 ## Add examples:
-option_or_set_ifdef(BUILD_${PROJECT_NAME}_EXAMPLES "Build ${PROJECT_NAME} examples or not" OFF BUILD_arba-arba_EXAMPLES)
-if(BUILD_${PROJECT_NAME}_EXAMPLES)
-    add_subdirectory(example)
-endif()
+add_example_subdirectory_if_build(example)
 
-## Add tests:
-option_or_set_ifdef(BUILD_${PROJECT_NAME}_TESTS "Build ${PROJECT_NAME} tests or not" OFF BUILD_arba-arba_TESTS)
-if(BUILD_${PROJECT_NAME}_TESTS AND BUILD_TESTING)
-    add_subdirectory(test)
-endif()
+# C++ INSTALL
+
+## Install C++ library:
+install_cpp_libraries(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}-targets)
+
+## Install project package
+install_library_package(${PROJECT_NAME} INPUT_PACKAGE_CONFIG_FILE cmake/config/package-config.cmake.in)
+install_uninstall_script(${PROJECT_NAME})

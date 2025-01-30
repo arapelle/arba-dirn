@@ -9,4 +9,4 @@ template <class DirectionType>
 class dual_directions;
 
 }
-}
+} // namespace arba

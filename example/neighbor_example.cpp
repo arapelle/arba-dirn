@@ -1,4 +1,5 @@
 #include <arba/dirn/d2/dir4/directions4.hpp>
+
 #include <iostream>
 
 class vec2

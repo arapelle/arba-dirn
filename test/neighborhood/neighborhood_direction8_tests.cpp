@@ -1,8 +1,9 @@
 #include "vec2.hpp"
-
 #include <arba/dirn/d2/dir8/directions8.hpp>
-#include <cstdlib>
+
 #include <gtest/gtest.h>
+
+#include <cstdlib>
 
 const vec2 pos(10, 0);
 const std::array neighborhood{ vec2(10, -1), vec2(11, -1), vec2(11, 0), vec2(11, 1),

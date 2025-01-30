@@ -11,5 +11,6 @@ int main()
         std::cout << dirn::directions4::to_string_view(dir) << "    "
                   << dirn::cartographic_directions4::to_string_view(dir) << std::endl;
     }
+    std::cout << "TEST PACKAGE SUCCESS" << std::endl;
     return EXIT_SUCCESS;
 }

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <arba/dirn/dual_directions.hpp>
 #include "vertical_direction6.hpp"
+#include <arba/dirn/dual_directions.hpp>
 
 #include <string_view>
 
@@ -34,9 +34,8 @@ public:
 
     inline static std::string_view to_short_string_view(direction dir)
     {
-        static constexpr std::array<std::string_view, base_::cardinality + 2> sv_array{
-            "~?", "%~", "UP", "UR", "DR", "DN", "DL", "UL"
-        };
+        static constexpr std::array<std::string_view, base_::cardinality + 2> sv_array{ "~?", "%~", "UP", "UR",
+                                                                                        "DR", "DN", "DL", "UL" };
         return sv_array.at(dir.index() + 2);
     }
 
@@ -49,5 +48,5 @@ public:
     }
 };
 
-}
-}
+} // namespace dirn::inline d2
+} // namespace arba
