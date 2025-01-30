@@ -25,7 +25,7 @@ enum invalid_direction_ : int8_t
     undefined_direction_ = bad_direction_ - 1,
 };
 
-}
+} // namespace priv
 
 template <std::size_t DirCount, class SelfType>
     requires(DirCount > 0)
@@ -97,8 +97,8 @@ protected:
     int_type value_;
 };
 
-}
-}
+} // namespace dirn
+} // namespace arba
 
 namespace std
 {
@@ -110,4 +110,4 @@ struct hash<::arba::dirn::direction<DirCount, SelfType>>
         return static_cast<std::size_t>(dir.index());
     }
 };
-}
+} // namespace std

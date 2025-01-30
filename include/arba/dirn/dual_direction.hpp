@@ -38,8 +38,8 @@ protected:
     inline constexpr explicit dual_direction(int_type value) : base_(value) {}
 };
 
-}
-}
+} // namespace dirn
+} // namespace arba
 
 template <std::size_t DirCount, class SelfType>
 struct std::hash<::arba::dirn::dual_direction<DirCount, SelfType>>
