@@ -1,8 +1,8 @@
 #pragma once
 
 #include "direction8.hpp"
-
 #include <arba/dirn/dual_directions.hpp>
+
 #include <string_view>
 
 inline namespace arba
@@ -44,5 +44,5 @@ public:
     }
 };
 
-}
-}
+} // namespace dirn::inline d2
+} // namespace arba

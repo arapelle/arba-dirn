@@ -1,6 +1,8 @@
 #include <arba/dirn/d2/dir6/vertical_directions6.hpp>
-#include <cstdlib>
+
 #include <gtest/gtest.h>
+
+#include <cstdlib>
 
 // vertical_directions6
 
@@ -62,7 +64,8 @@ TEST(vertical_directions6_tests, vertical_directions6__valid_directions)
     dirn::vertical_direction6 down = dirn::vertical_directions6::down;
     dirn::vertical_direction6 down_left = dirn::vertical_directions6::down_left;
     dirn::vertical_direction6 up_left = dirn::vertical_directions6::up_left;
-    ASSERT_EQ(dirn::vertical_directions6::valid_directions, (std::array{ up, up_right, down_right, down, down_left, up_left }));
+    ASSERT_EQ(dirn::vertical_directions6::valid_directions,
+              (std::array{ up, up_right, down_right, down, down_left, up_left }));
 }
 
 TEST(vertical_directions6_tests, vertical_directions6__opposed_directions)
@@ -73,7 +76,8 @@ TEST(vertical_directions6_tests, vertical_directions6__opposed_directions)
     dirn::vertical_direction6 down = dirn::vertical_directions6::down;
     dirn::vertical_direction6 down_left = dirn::vertical_directions6::down_left;
     dirn::vertical_direction6 up_left = dirn::vertical_directions6::up_left;
-    ASSERT_EQ(dirn::vertical_directions6::opposed_directions, (std::array{ down, down_left, up_left, up, up_right, down_right }));
+    ASSERT_EQ(dirn::vertical_directions6::opposed_directions,
+              (std::array{ down, down_left, up_left, up, up_right, down_right }));
 }
 
 TEST(vertical_directions6_tests, vertical_directions6__nth)
@@ -195,10 +199,16 @@ TEST(vertical_directions6_tests, vertical_direction6__other_directions)
 TEST(vertical_directions6_tests, vertical_direction6__hash)
 {
     std::hash<dirn::vertical_direction6> dir_hash;
-    ASSERT_EQ(dir_hash(dirn::vertical_directions6::up), static_cast<std::size_t>(dirn::vertical_directions6::up.index()));
-    ASSERT_EQ(dir_hash(dirn::vertical_directions6::up_right), static_cast<std::size_t>(dirn::vertical_directions6::up_right.index()));
-    ASSERT_EQ(dir_hash(dirn::vertical_directions6::down_right), static_cast<std::size_t>(dirn::vertical_directions6::down_right.index()));
-    ASSERT_EQ(dir_hash(dirn::vertical_directions6::down), static_cast<std::size_t>(dirn::vertical_directions6::down.index()));
-    ASSERT_EQ(dir_hash(dirn::vertical_directions6::down_left), static_cast<std::size_t>(dirn::vertical_directions6::down_left.index()));
-    ASSERT_EQ(dir_hash(dirn::vertical_directions6::up_left), static_cast<std::size_t>(dirn::vertical_directions6::up_left.index()));
+    ASSERT_EQ(dir_hash(dirn::vertical_directions6::up),
+              static_cast<std::size_t>(dirn::vertical_directions6::up.index()));
+    ASSERT_EQ(dir_hash(dirn::vertical_directions6::up_right),
+              static_cast<std::size_t>(dirn::vertical_directions6::up_right.index()));
+    ASSERT_EQ(dir_hash(dirn::vertical_directions6::down_right),
+              static_cast<std::size_t>(dirn::vertical_directions6::down_right.index()));
+    ASSERT_EQ(dir_hash(dirn::vertical_directions6::down),
+              static_cast<std::size_t>(dirn::vertical_directions6::down.index()));
+    ASSERT_EQ(dir_hash(dirn::vertical_directions6::down_left),
+              static_cast<std::size_t>(dirn::vertical_directions6::down_left.index()));
+    ASSERT_EQ(dir_hash(dirn::vertical_directions6::up_left),
+              static_cast<std::size_t>(dirn::vertical_directions6::up_left.index()));
 }

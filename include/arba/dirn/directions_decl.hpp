@@ -9,4 +9,4 @@ template <class DirectionType>
 class directions;
 
 }
-}
+} // namespace arba
