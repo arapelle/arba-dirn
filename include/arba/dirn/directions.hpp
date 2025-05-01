@@ -24,7 +24,7 @@ private:
     {
         std::array<direction, cardinality> dirs;
         for (std::size_t i = 0; i < cardinality; ++i)
-            dirs[i] = direction(i);
+            dirs[i] = direction(static_cast<typename direction::int_type>(i));
         return dirs;
     }
 
