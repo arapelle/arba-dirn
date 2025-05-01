@@ -31,11 +31,11 @@ public:
         assert(this->is_valid());
         if constexpr (std::has_single_bit(base_::cardinality))
         {
-            return self_type((this->value_ + this->opposed_offset_) & (this->cardinality - 1));
+            return self_type(static_cast<int_type>((this->value_ + this->opposed_offset_) & (this->cardinality - 1)));
         }
         else
         {
-            return self_type((this->value_ + this->opposed_offset_) % this->cardinality);
+            return self_type(static_cast<int_type>((this->value_ + this->opposed_offset_) % this->cardinality));
         }
     }
 

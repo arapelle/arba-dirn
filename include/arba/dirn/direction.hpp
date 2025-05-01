@@ -47,11 +47,11 @@ public:
         assert(this->is_valid());
         if constexpr (std::has_single_bit(cardinality))
         {
-            return self_type((this->value_ + left_offset_) & (this->cardinality - 1));
+            return self_type(static_cast<int_type>((this->value_ + left_offset_) & (this->cardinality - 1)));
         }
         else
         {
-            return self_type((this->value_ + left_offset_) % this->cardinality);
+            return self_type(static_cast<int_type>((this->value_ + left_offset_) % this->cardinality));
         }
     }
 
@@ -74,11 +74,11 @@ public:
         assert(this->is_valid());
         if constexpr (std::has_single_bit(cardinality))
         {
-            return self_type((this->value_ + 1) & (cardinality - 1));
+            return self_type(static_cast<int_type>((this->value_ + 1) & (cardinality - 1)));
         }
         else
         {
-            return self_type((this->value_ + 1) % cardinality);
+            return self_type(static_cast<int_type>((this->value_ + 1) % cardinality));
         }
     }
 
